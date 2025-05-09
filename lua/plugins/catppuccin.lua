@@ -15,7 +15,6 @@ return {
         telescope = true,
         notify = true,
         mini = true,
-        neotree = true,
         which_key = true,
         fidget = true,
         markdown = true,
