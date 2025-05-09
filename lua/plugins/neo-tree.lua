@@ -7,52 +7,114 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   config = function()
+    local function set_transparent_highlights()
+      vim.api.nvim_set_hl(0, "NeoTreeNormal",        { bg = "none" })
+      vim.api.nvim_set_hl(0, "NeoTreeNormalNC",      { bg = "none" })
+      vim.api.nvim_set_hl(0, "NeoTreeFloatBorder",   { bg = "none" })
+      vim.api.nvim_set_hl(0, "NeoTreeFloatNormal",   { bg = "none" })
+    end
+
     require("neo-tree").setup {
+      sources = { "filesystem", "buffers", "git_status" },
+
       filesystem = {
         filtered_items = {
-          -- フィルター自体を可視化
           visible = true,
-
-          -- ドットファイル非表示OFF
           hide_dotfiles = false,
-
-          -- .gitignore に従うフィルターはお好みで
           hide_gitignore = false,
-
-          -- 名前で隠す（今回は空のまま）
-          hide_by_name = {
-            ".DS_Store"
-          },
-
-
-          -- パターンで隠す（今回は不要）
+          hide_by_name = { ".DS_Store" },
           hide_by_pattern = {},
-
-          -- **必ず表示** したいファイル名をリスト化
-          always_show = {
-            ".env", 
-            ".env.local",
-            ".env.development",
-            ".env.production",
-          },
-
-          -- 絶対に隠したいなら never_show / never_show_by_pattern も使えます
+          always_show = vim.tbl_map(function(name)
+            return ".env." .. name
+          end, { "local", "development", "production", "test" }),
           never_show = {},
           never_show_by_pattern = {},
         },
-
         follow_current_file = true,
         hijack_netrw_behavior = "open_default",
+        use_libuv_file_watcher = true,
+        event_handlers = {
+          {
+            event = "file_opened",
+            handler = function()
+              require("neo-tree.command").execute({ action = "close" })
+            end,
+          },
+        },
       },
+
+      buffers = {
+        follow_current_file = true,
+        group_empty_dirs = true,
+      },
+
+      git_status = {
+        symbols = {
+          added     = "",
+          modified  = "",
+          deleted   = "",
+          renamed   = "",
+          untracked = "",
+          ignored   = "",
+          unstaged  = "_",
+          staged    = "✓",
+          conflict  = "",
+        },
+      },
+
       window = {
         position = "left",
         width = 35,
+        source_selector = {
+          winbar = false,   -- タブ切り替え表示しない（必要なら true にしてね）
+          statusline = false,
+        },
+      },
+
+      default_component_configs = {
+        icon = {
+          folder_closed = "",
+          folder_open = "",
+          folder_empty = "",
+          default = "󰈚", -- 通常ファイルのアイコン
+        },
+        modified = {
+          symbol = "●", -- 未保存ファイルにつくマーク
+          highlight = "NeoTreeModified",
+        },
+        git_status = {
+          symbols = {
+            added     = "✚",
+            modified  = "m",
+            deleted   = "✖",
+            renamed   = "➜",
+            untracked = "_",
+            ignored   = "◌",
+            unstaged  = "✗",
+            staged    = "✓",
+            conflict  = "",
+          },
+        },
       },
     }
 
-    vim.keymap.set("n", "<leader>e", "<cmd>Neotree reveal<CR>", {
-      silent = true,
-      desc   = "Reveal NeoTree",
+    -- ハイライト透過を起動時＆カラースキーム変更時に適用
+    set_transparent_highlights()
+    vim.api.nvim_create_augroup("MyTransparent", { clear = true })
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      group = "MyTransparent",
+      callback = set_transparent_highlights,
     })
+
+    -- キーマップ
+    local map = vim.keymap.set
+    local opts = { silent = true, noremap = true }
+
+    map("n", "<leader>e", "<cmd>Neotree reveal<CR>", { desc = "ファイルツリーを開く", unpack(opts) })
+    map("n", "<leader>n", "<cmd>Neotree filesystem toggle<CR>", { desc = "NeoTreeをトグル", unpack(opts) })
+    map("n", "<leader>nf", "<cmd>Neotree focus<CR>", { desc = "NeoTreeにフォーカス", unpack(opts) })
+    map("n", "<leader>ob", "<cmd>Neotree buffers toggle<CR>", { desc = "開いてるバッファ一覧", unpack(opts) })
+    map("n", "<leader>og", "<cmd>Neotree git_status toggle<CR>", { desc = "Gitステータス一覧", unpack(opts) })
   end,
 }
+

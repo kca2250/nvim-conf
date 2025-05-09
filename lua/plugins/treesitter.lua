@@ -16,6 +16,8 @@ return {
         "css",
         "scss",
         "json",
+        "yaml",
+        "lua",
       },
       highlight = {
         enable = true,             -- シンタックスハイライト有効化

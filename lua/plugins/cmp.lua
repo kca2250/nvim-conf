@@ -52,6 +52,7 @@ return {
         { name = "luasnip" },
       }, {
         { name = "buffer" },
+        { name = 'copilot'},
         { name = "path" },
       }),
       formatting = {

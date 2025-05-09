@@ -10,6 +10,12 @@ lazy.setup({
   { import = "plugins.theme" },
   { import = "plugins.neo-tree" },
   { import = "plugins.toggleterm" },
-  { import = "plugins.code-companion" },
   { import = "plugins.lunaline" },
+  { import = "plugins.colorizer" },
+  { import = "plugins.autopairs" },
+  { import = "plugins.emmet" },
+  { import = "plugins.none-ls" },
+  { import = "plugins.mason-null-ls"},
+  { import = "plugins.code-companion" },
+  { import = "plugins.fidget"}
 }) 

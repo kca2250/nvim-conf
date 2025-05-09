@@ -24,8 +24,9 @@ return {
               hint  = "󰌵 ",
             },
             colored = true,
-            update_in_insert = false,
-            always_visible = false,
+            update_in_insert = true,
+            always_visible = true,
+
           },
           "encoding",
           "fileformat",
