@@ -4,7 +4,7 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = "auto",  -- 他に "gruvbox", "tokyonight", "catppuccin" などもOK
+        theme = "catppuccin",  -- 他に "gruvbox", "tokyonight", "catppuccin" などもOK
         section_separators = "", 
         component_separators = "",
       },
@@ -18,10 +18,10 @@ return {
           sources = { "nvim_diagnostic" }, -- LSPベースの診断ソース
           sections = { "error", "warn", "info", "hint" },
           symbols = {
-              error = " ",
-              warn  = " ",
-              info  = " ",
-              hint  = "󰌵 ",
+              error = "e:",
+              warn  = "w:",
+              info  = "i:",
+              hint  = "h:",
             },
             colored = true,
             update_in_insert = true,
@@ -32,8 +32,7 @@ return {
           "fileformat",
           "filetype",
         },
-        lualine_y = { "progress" },
-        lualine_z = { "location" },
+        lualine_x = { "location" },
       }
     })
   end,

@@ -3,7 +3,7 @@ return {
   -- nvim-autopairs 本体
   {
     "windwp/nvim-autopairs",
-    event = "InsertEnter",       -- 挿入モードに入ったとき読み込む
+   event = "InsertEnter",       -- 挿入モードに入ったとき読み込む
     dependencies = {
       -- Treesitter（必須）
       "nvim-treesitter/nvim-treesitter",
