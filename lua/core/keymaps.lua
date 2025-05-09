@@ -9,6 +9,9 @@ map("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
 -- LSP 関連
 map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+vim.keymap.set("n", "<leader>q", function()
+  vim.diagnostic.setqflist()
+end, { desc = "LSPエラー一覧をQuickfixに表示" })
 
 -- Lazygit
 vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<CR>", { silent = true, desc = "Open LazyGit" })
