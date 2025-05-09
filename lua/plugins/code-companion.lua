@@ -7,7 +7,7 @@ return {
   },
   config = function()
     local adapters = require("codecompanion.adapters")
-
+    
     -- gpt-3.5-turbo 用のアダプター
     local gpt35 = adapters.extend("openai", {
       name = "gpt-3.5",
@@ -38,6 +38,12 @@ return {
       },
     })
 
+    -- load  prompt
+    local function read_prompt(path)
+      return table.concat(vim.fn.readfile(vim.fn.stdpath("config") .. path), "\n")
+    end
+    local prompt = read_prompt("/lua/plugins/prompt/index.txt")
+
     require("codecompanion").setup({
       log_level = "INFO",
       adapters = {
@@ -50,6 +56,25 @@ return {
         },
         chat = {
           adapter = "gpt_4", -- チャット・推論は高性能モデル
+          settings = {
+            system = prompt,
+          },
+        },
+      },
+      display = {
+        chat = {
+          window = {
+            layout = "float",
+            width = 0.6,       -- 画面の60%
+            height = 0.6,      -- 画面の60%
+            border = "rounded",
+            title = "💬 Code Chat",
+            title_pos = "center",
+            zindex = 45,
+            opts = {
+              winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
+            },
+          },
         },
       },
       opts = {
