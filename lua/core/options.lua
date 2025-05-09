@@ -7,7 +7,7 @@ g.maplocalleader = " "
 
 
 o.number = true
-o.relativenumber = true
+o.relativenumber = false
 o.expandtab = true
 o.shiftwidth = 2
 o.clipboard = "unnamedplus"
