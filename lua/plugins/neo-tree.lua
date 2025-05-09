@@ -8,8 +8,8 @@ return {
   },
   config = function()
     local function set_transparent_highlights()
-      vim.api.nvim_set_hl(0, "NeoTreeNormal",        { bg = "none" })
-      vim.api.nvim_set_hl(0, "NeoTreeNormalNC",      { bg = "none" })
+      vim.api.nvim_set_hl(0, "NeoTreeNormal",        { bg = "none", bold = true })
+      vim.api.nvim_set_hl(0, "NeoTreeNormalNC",      { bg = "none", bold = true })
       vim.api.nvim_set_hl(0, "NeoTreeFloatBorder",   { bg = "none" })
       vim.api.nvim_set_hl(0, "NeoTreeFloatNormal",   { bg = "none" })
     end
