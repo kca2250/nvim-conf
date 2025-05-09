@@ -2,6 +2,9 @@
 local o = vim.opt
 local g = vim.g
 
+-- Prettierの状態をlualineで使うための初期化
+vim.g.prettier_status = ""
+
 g.mapleader = " "
 g.maplocalleader = " "
 
