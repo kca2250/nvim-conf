@@ -1,1 +1,2 @@
-## my nvim settings
+## my neovim settings
+
