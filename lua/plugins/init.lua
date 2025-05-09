@@ -17,5 +17,6 @@ lazy.setup({
   { import = "plugins.code-companion" },
   { import = "plugins.fidget"},
   { import = "plugins.conform"},
-  { import = "plugins.copilot"}
-}) 
+  { import = "plugins.copilot"},
+  { import = "plugins.octo" }
+})
