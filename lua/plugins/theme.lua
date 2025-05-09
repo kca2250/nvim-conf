@@ -1,17 +1,14 @@
--- lua/plugins/tokyonight.lua
 return {
   "folke/tokyonight.nvim",
-  opts = {
-    style = "night", -- storm, night, day
-    transparent = false,
-    terminal_colors = true,
-    styles = {
-      comments = { italic = true },
-      keywords = { italic = false },
-    },
-  },
-  config = function(_, opts)
-    require("tokyonight").setup(opts)
-    vim.cmd([[colorscheme tokyonight]])
+  priority = 1000,        -- colorscheme は早めに読み込みたいときに
+  config = function()
+    require("tokyonight").setup({
+      style = "storm",
+      -- お好みで他オプションも追加
+      transparent = true,
+      terminal_colors = true,
+      -- lualine_bold = true,
+    })
+    vim.cmd("colorscheme tokyonight")
   end,
 }
