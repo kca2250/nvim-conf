@@ -8,10 +8,16 @@ return {
   },
   config = function()
     local function set_transparent_highlights()
-      vim.api.nvim_set_hl(0, "NeoTreeNormal",        { bg = "none", bold = true })
+      vim.api.nvim_set_hl(0, "NeoTreeNormal",        { bg = "none", bold = true})
       vim.api.nvim_set_hl(0, "NeoTreeNormalNC",      { bg = "none", bold = true })
       vim.api.nvim_set_hl(0, "NeoTreeFloatBorder",   { bg = "none" })
       vim.api.nvim_set_hl(0, "NeoTreeFloatNormal",   { bg = "none" })
+      vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = "#ffffff"})
+      vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = "#c0c7dc"})
+      vim.api.nvim_set_hl(0, "NeoTreeFileName",      { fg = "#cdd6f4" }) -- 通常ファイル
+      vim.api.nvim_set_hl(0, "NeoTreeFileNameOpened",{ fg = "#89dceb", bold = true }) -- 開いているファイル
+      vim.api.nvim_set_hl(0, "NeoTreeModified",      { fg = "#fab387" }) -- 未保存ファイル（●マーク）
+      vim.api.nvim_set_hl(0, "NeoTreeMessage",       { fg = "#f38ba8" }) -- 新規ファイルなどのメッセージ表示
     end
 
     require("neo-tree").setup {
@@ -48,20 +54,6 @@ return {
         group_empty_dirs = true,
       },
 
-      git_status = {
-        symbols = {
-          added     = "",
-          modified  = "",
-          deleted   = "",
-          renamed   = "",
-          untracked = "",
-          ignored   = "",
-          unstaged  = "_",
-          staged    = "✓",
-          conflict  = "",
-        },
-      },
-
       window = {
         position = "left",
         width = 35,
@@ -79,18 +71,18 @@ return {
           default = "󰈚", -- 通常ファイルのアイコン
         },
         modified = {
-          symbol = "●", -- 未保存ファイルにつくマーク
+          symbol = "\u{f071}", -- 未保存ファイルにつくマーク
           highlight = "NeoTreeModified",
         },
         git_status = {
           symbols = {
             added     = "✚",
             modified  = "m",
-            deleted   = "✖",
+            deleted   = "d",
             renamed   = "➜",
             untracked = "_",
             ignored   = "◌",
-            unstaged  = "✗",
+            unstaged  = "_",
             staged    = "✓",
             conflict  = "",
           },
