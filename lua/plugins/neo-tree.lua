@@ -100,11 +100,11 @@ return {
 
     -- ハイライト透過を起動時＆カラースキーム変更時に適用
     set_transparent_highlights()
-    vim.api.nvim_create_augroup("MyTransparent", { clear = true })
-    vim.api.nvim_create_autocmd("ColorScheme", {
-      group = "MyTransparent",
-      callback = set_transparent_highlights,
-    })
+      vim.api.nvim_create_augroup("MyTransparent", { clear = true })
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        group = "MyTransparent",
+        callback = set_transparent_highlights,
+      })
 
     -- キーマップ
     local map = vim.keymap.set
