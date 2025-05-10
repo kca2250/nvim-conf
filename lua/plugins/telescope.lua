@@ -5,8 +5,8 @@ return {
   config = function()
     require("telescope").setup({
       defaults = {
-        prompt_prefix = "> ",
-        selection_caret = "* ",
+        prompt_prefix = "",
+        selection_caret = " ",
         mappings = {
           i = {
             ["<Esc>"] = require("telescope.actions").close,
