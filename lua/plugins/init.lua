@@ -7,6 +7,7 @@ lazy.setup({
   { import = "plugins.lsp" },
   { import = "plugins.cmp" },
   { import = "plugins.treesitter" },
+  { import = "plugins.treesitter-context"},
   { import = "plugins.catppuccin" },
   { import = "plugins.neo-tree" },
   { import = "plugins.toggleterm" },
@@ -18,5 +19,6 @@ lazy.setup({
   { import = "plugins.fidget"},
   { import = "plugins.conform"},
   { import = "plugins.copilot"},
-  { import = "plugins.octo" }
+  { import = "plugins.copilot-cmp"},
+  { import = "plugins.octo" },
 })
