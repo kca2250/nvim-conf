@@ -20,6 +20,7 @@ lazy.setup({
   { import = "plugins.dropbar" },
   { import = "plugins.tiny-inline-diagnostic" },
   { import = "plugins.comment"},
-  { import = "plugins.conform"}
+  { import = "plugins.conform"},
+  { import = "plugins.avante"}
 })
 
