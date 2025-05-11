@@ -2,17 +2,18 @@
 local lazy = require("lazy")
 
 lazy.setup({
-  { import = "plugins.telescope" },
+  { import = "plugins.catppuccin" },         -- 🎨 カラースキーム
+  { import = "plugins.nvim-web-devicons"},
+  { import = "plugins.lunaline" },           -- 📊 ステータスライン（ちらつきやすい）
+  { import = "plugins.colorizer" },          -- 🎨 色表示系も早めに
+  { import = "plugins.neo-tree" },           -- 🗂️ サイドバー
+  { import = "plugins.telescope" },          -- 🔭 ファジーファインダ
   { import = "plugins.lazygit" },
   { import = "plugins.lsp" },
   { import = "plugins.cmp" },
   { import = "plugins.treesitter" },
   { import = "plugins.treesitter-context"},
-  { import = "plugins.catppuccin" },
-  { import = "plugins.neo-tree" },
   { import = "plugins.toggleterm" },
-  { import = "plugins.lunaline" },
-  { import = "plugins.colorizer" },
   { import = "plugins.autopairs" },
   { import = "plugins.emmet" },
   { import = "plugins.octo" },

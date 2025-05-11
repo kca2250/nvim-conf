@@ -1,5 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
+  lazy = false,
   dependencies = { "nvim-tree/nvim-web-devicons" }, -- アイコン付きで表示する場合
   config = function()
     require("lualine").setup({

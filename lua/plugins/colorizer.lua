@@ -1,6 +1,7 @@
 -- ~/.config/nvim/lua/plugins.lua
 return {
   "norcalli/nvim-colorizer.lua",
+  lazy = false,
   config = function()
     require("colorizer").setup(
       -- カラライズしたいファイルタイプのリスト

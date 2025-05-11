@@ -1,5 +1,6 @@
 return {
   "Bekaboo/dropbar.nvim",
+  lazy = false,
   dependencies = {
     "nvim-telescope/telescope-fzf-native.nvim", -- optional: fuzzy finder用
     build = "make",
