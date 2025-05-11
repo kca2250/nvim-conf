@@ -15,7 +15,6 @@ lazy.setup({
   { import = "plugins.colorizer" },
   { import = "plugins.autopairs" },
   { import = "plugins.emmet" },
-  { import = "plugins.fidget"},
   { import = "plugins.octo" },
   { import = "plugins.dropbar" },
   { import = "plugins.tiny-inline-diagnostic" },
