@@ -12,6 +12,7 @@ return {
     end,
   },
 
+  {
     "williamboman/mason-lspconfig.nvim",
     after = "mason.nvim",
     config = function()
@@ -44,7 +45,8 @@ return {
         -- ジャンプ系
         buf_map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
         buf_map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
-        buf_map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")       -- アクション系
+        buf_map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
+        -- アクション系
         buf_map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
         buf_map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
         buf_map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
@@ -56,8 +58,7 @@ return {
         capabilities = cmp_lsp.default_capabilities(capabilities)
       end
 
-      -- 各言語サーバー設定
-      -- TypeScript / JavaScript (tsserver)
+      -- TypeScript / JavaScript
       lspconfig.ts_ls.setup({
         on_attach = on_attach,
         capabilities = capabilities,
@@ -81,7 +82,7 @@ return {
         },
       })
 
-      -- JSON（おまけ）
+      -- JSON
       lspconfig.jsonls.setup({
         on_attach = on_attach,
         capabilities = capabilities,
@@ -89,3 +90,4 @@ return {
     end,
   },
 }
+
