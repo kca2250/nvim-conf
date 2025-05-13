@@ -37,7 +37,9 @@ return {
           never_show = {},
           never_show_by_pattern = {},
         },
-        follow_current_file = true,
+        follow_current_file = {
+          enabled = true,
+        },
         hijack_netrw_behavior = "open_default",
         use_libuv_file_watcher = true,
         event_handlers = {
@@ -51,7 +53,9 @@ return {
       },
 
       buffers = {
-        follow_current_file = true,
+        follow_current_file = {
+          enabled = true,
+        },
         group_empty_dirs = true,
       },
 

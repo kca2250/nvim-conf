@@ -2,7 +2,9 @@
 local lazy = require("lazy")
 
 lazy.setup({
-  { import = "plugins.catppuccin" },         -- 🎨 カラースキーム
+  -- { import = "plugins.oxocarbon"},
+  -- { import = "plugins.catppuccin" },         -- 🎨 カラースキーム
+  { import = "plugins.gruvbox"},
   { import = "plugins.nvim-web-devicons"},
   { import = "plugins.lunaline" },           -- 📊 ステータスライン（ちらつきやすい）
   { import = "plugins.colorizer" },          -- 🎨 色表示系も早めに
@@ -22,6 +24,7 @@ lazy.setup({
   { import = "plugins.comment"},
   { import = "plugins.conform"},
   { import = "plugins.avante"},
-  { import = "plugins.mcphub"}
+  { import = "plugins.mcphub"},
+  { import = "plugins.visual-multi"}
 })
 

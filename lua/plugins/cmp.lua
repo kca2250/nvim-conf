@@ -12,6 +12,7 @@ return {
     "L3MON4D3/LuaSnip",        -- スニペットエンジン
   },
   event = "InsertEnter",      -- 挿入モードに入ったら読み込む
+  
   config = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
@@ -26,7 +27,7 @@ return {
         end,
       },
       mapping = {
-        ["<C-Space>"] = cmp.mapping.complete(),           -- 補完開始
+        ["<S-Space>"] = cmp.mapping.complete(),           -- 補完開始
         ["<CR>"]      = cmp.mapping.confirm({ select = true }), -- Enter で確定
         ["<Tab>"]     = cmp.mapping(function(fallback)    -- Tab で選択 or スニペット展開
           if cmp.visible() then

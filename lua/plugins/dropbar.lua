@@ -32,6 +32,19 @@ return {
       end,
     })
 
+
+    -- 縦、横分割したときにもパンクズが表示される様に
+    vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
+      callback = function()
+        local ok, api = pcall(require, "dropbar.api")
+        if ok then
+          vim.defer_fn(function()
+            pcall(api.update)
+          end, 10)
+        end
+      end,
+    })
+
     -- キーマッピング
     vim.keymap.set("n", "<Leader>;", dropbar_api.pick, { desc = "Pick symbols in winbar" })
     vim.keymap.set("n", "[;", dropbar_api.goto_context_start, { desc = "Go to start of current context" })

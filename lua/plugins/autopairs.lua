@@ -16,7 +16,7 @@ return {
 
       -- 次に nvim-ts-autotag をセットアップ
       require("nvim-ts-autotag").setup{
-        -- filetypes = { "html", "xml", "typescriptreact", "javascriptreact", "vue" },
+        filetypes = { "html", "xml", "typescriptreact", "javascriptreact", "vue" },
       }
     end,
   },

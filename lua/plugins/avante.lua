@@ -8,9 +8,9 @@ return {
     provider = "openai",
     openai = {
       endpoint = "https://api.openai.com/v1",
-      model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
+      model = "gpt-4.1-mini", -- your desired model (or use gpt-4o, etc.)
       timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
-      temperature = 0,
+      temperature = 0.2,
       max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
       --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
     },
@@ -41,6 +41,39 @@ return {
     },
   },
   build = "make",
+  
+  -- keymaps
+  keys = {
+    -- 💬 チャット系
+    { "<leader>aa", "<cmd>AvanteAsk<CR>", desc = "Avante: 質問する" },
+    { "<leader>ac", "<cmd>AvanteAskCodebase<CR>", desc = "Avante: コードベースに質問" },
+    { "<leader>an", "<cmd>AvanteChatNew<CR>", desc = "Avante: 新しいチャット" },
+    { "<leader>ah", "<cmd>AvanteHistory<CR>", desc = "Avante: チャット履歴" },
+    { "<leader>ax", "<cmd>AvanteClear<CR>", desc = "Avante: チャット履歴を削除" },
+
+    -- ✂️ 編集・リファクタ系
+    { "<leader>ae", "<cmd>AvanteEdit<CR>", desc = "Avante: 選択範囲を編集", mode = { "v" } },
+
+    -- 🔎 コード探索系
+    { "<leader>as", "<cmd>AvanteFindSymbolReferences<CR>", desc = "Avante: 関連シンボル検索" },
+    { "<leader>ar", "<cmd>AvanteShowRepoMap<CR>", desc = "Avante: リポジトリ構造マップ" },
+
+    -- 🧠 モデル・プロバイダー管理
+    { "<leader>am", "<cmd>AvanteModels<CR>", desc = "Avante: モデル一覧" },
+    { "<leader>ap", "<cmd>AvanteSwitchProvider<CR>", desc = "Avante: プロバイダー切替" },
+    { "<leader>aw", "<cmd>AvanteSwitchSelectorProvider<CR>", desc = "Avante: セレクター切替" },
+
+    -- 🧰 UI操作
+    { "<leader>ao", "<cmd>AvanteOpen<CR>", desc = "Avante: サイドバーを開く" },
+    { "<leader>af", "<cmd>AvanteFocus<CR>", desc = "Avante: フォーカス切替" },
+    { "<leader>at", "<cmd>AvanteToggle<CR>", desc = "Avante: サイドバー表示切替" },
+    { "<leader>au", "<cmd>AvanteRefresh<CR>", desc = "Avante: サイドバーを再描画" },
+
+    -- 🛑 強制停止
+    { "<leader>aq", "<cmd>AvanteStop<CR>", desc = "Avante: 処理を強制停止" },
+  },
+
+
   dependencies = {
     "ravitemer/mcphub.nvim",
     "nvim-treesitter/nvim-treesitter",
