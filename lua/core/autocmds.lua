@@ -28,3 +28,17 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     end
   end,
 })
+
+-- フォーカスされているウィンドウをハイライト
+vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
+  callback = function()
+    vim.wo.winhighlight = "WinSeparator:ActiveWinSeparator"
+  end,
+})
+
+vim.api.nvim_create_autocmd("WinLeave", {
+  callback = function()
+    vim.wo.winhighlight = "WinSeparator:InactiveWinSeparator"
+  end,
+})
+
