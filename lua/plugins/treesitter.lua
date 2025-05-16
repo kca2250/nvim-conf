@@ -9,12 +9,15 @@ return {
   config = function()
     require("nvim-treesitter.configs").setup({
       ensure_installed = {         -- 必要な言語を列挙
+        "dockerfile",
         "javascript",
         "typescript",
         "ruby",
+        "astro",
         "html",
         "css",
         "scss",
+        "tsx",
         "json",
         "yaml",
         "lua",
