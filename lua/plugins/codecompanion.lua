@@ -50,7 +50,7 @@ return {
       chat = {
         intro_message = "CodeCompanion へようこそ！✨",
         show_token_count = true,
-        auto_scroll = false,
+        auto_scroll = true,
         show_header_separator = false, -- markdown強化時は false 推奨
 
         window = {
