@@ -50,3 +50,26 @@ map("n", "K", "5k", opts) -- 5行上へ
 map("n", "<C-u>", "<C-u>zz", opts) -- 半ページ上＋中央表示
 map("n", "n", "nzzzv", opts)       -- 検索移動後に中央表示
 map("n", "N", "Nzzzv", opts)
+
+-- Escを押したら検索ハイライトをクリア
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "ハイライトを消す", silent = true })
+
+vim.keymap.set("n", "<leader>*", function()
+  local word = vim.fn.expand("<cword>")
+  vim.fn.setreg("/", word)
+  vim.cmd("normal! n")  -- 最初のマッチにジャンプ
+end, { desc = "現在の単語を検索＆ハイライト" })
+
+-- CodeCompanion display loading
+vim.keymap.set("n", "<leader>cc", function()
+  require("core.codecompanion_ui").send_chat_with_progress()
+end, { desc = "CodeCompanion Chat + Thinking 表示" })
+
+-- CodeCompanion inline assistant
+vim.keymap.set("v", "<leader>ci", function()
+  vim.ui.input({ prompt = "修正したい内容を入力してください：" }, function(input)
+    if input and input ~= "" then
+      vim.cmd("'<,'>CodeCompanion " .. input)
+    end
+  end)
+end, { desc = "CodeCompanion: インラインアシスタント" })
