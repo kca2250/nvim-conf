@@ -4,11 +4,11 @@
 -- ────────────────────────────────────────────────────────────────
 return {
   "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",            -- 起動時に Parsers を自動更新
+  build = ":TSUpdate",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     require("nvim-treesitter.configs").setup({
-      ensure_installed = {         -- 必要な言語を列挙
+      ensure_installed = {
         "dockerfile",
         "javascript",
         "typescript",
@@ -23,23 +23,29 @@ return {
         "lua",
       },
       highlight = {
-        enable = true,             -- シンタックスハイライト有効化
+        enable = true,
         additional_vim_regex_highlighting = false,
       },
       indent = {
-        enable = true,             -- 自動インデント
+        enable = true,
       },
       incremental_selection = {
-        enable = true,             -- 選択範囲拡張
+        enable = true,
         keymaps = {
-          init_selection = "gnn",  -- 選択開始
-          node_incremental = "grn",-- 範囲を広げる
-          node_decremental = "grm",-- 範囲を狭める
+          init_selection = "gnn",
+          node_incremental = "grn",
+          node_decremental = "grm",
         },
       },
       playground = {
-        enable = false,            -- Tree-sitter Playground（必要なら true）
+        enable = false,
       },
     })
+
+    -- 💡 typescriptreact に tsx パーサーを使うように設定
+    if vim.treesitter.language.register then
+      vim.treesitter.language.register("tsx", "typescriptreact")
+    end
   end,
 }
+
