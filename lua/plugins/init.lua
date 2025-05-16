@@ -2,20 +2,24 @@
 local lazy = require("lazy")
 
 lazy.setup({
-  -- { import = "plugins.oxocarbon"},
-  -- { import = "plugins.catppuccin" },         -- 🎨 カラースキーム
   { import = "plugins.gruvbox"},
   { import = "plugins.nvim-web-devicons"},
   { import = "plugins.lunaline" },           -- 📊 ステータスライン（ちらつきやすい）
   { import = "plugins.colorizer" },          -- 🎨 色表示系も早めに
-  { import = "plugins.neo-tree" },           -- 🗂️ サイドバー
+  { import = "plugins.nvim-tree" },           -- 🗂️ サイドバー
+  { import = "plugins.dressing"},
+  { import = "plugins.noice"},
+  { import = "plugins.hlchunk"},
   { import = "plugins.telescope" },          -- 🔭 ファジーファインダ
   { import = "plugins.lazygit" },
   { import = "plugins.lsp" },
   { import = "plugins.cmp" },
+  { import = "plugins.tailwindcolor"},
+  { import = "plugins.render-markdown"},
+  { import = "plugins.copilot"},
+  { import = "plugins.copilot-cmp"},
   { import = "plugins.treesitter" },
   { import = "plugins.treesitter-context"},
-  { import = "plugins.toggleterm" },
   { import = "plugins.autopairs" },
   { import = "plugins.emmet" },
   { import = "plugins.octo" },
@@ -23,8 +27,8 @@ lazy.setup({
   { import = "plugins.tiny-inline-diagnostic" },
   { import = "plugins.comment"},
   { import = "plugins.conform"},
-  { import = "plugins.avante"},
+  { import = "plugins.codecompanion"},
   { import = "plugins.mcphub"},
-  { import = "plugins.visual-multi"}
+  { import = "plugins.surround"},
 })
 
