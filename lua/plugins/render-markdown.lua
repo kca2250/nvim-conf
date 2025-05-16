@@ -4,7 +4,27 @@ return {
   ft = { "markdown", "codecompanion" },
   config = function()
     require("render-markdown").setup({
-      -- デフォルト設定でも十分見やすい！
+      headings = {
+        heading_styles = { "Function", "Conditional", "Repeat", "String", "Identifier", "Comment" },
+      },
+      bullets = {
+        symbol = "▸",
+        highlight = "Keyword",
+      },
+      quote = {
+        highlight = "Comment",
+        string_char = "┃",
+      },
+      code = {
+        highlight = "Normal",
+        background = true,
+      },
+      italic = {
+        highlight = "Comment",
+      },
+      bold = {
+        highlight = "Statement",
+      },
     })
   end
 }
