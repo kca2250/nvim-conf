@@ -49,16 +49,23 @@ return {
       },
       pickers = {
         find_files = {
-          hidden = true, -- .dotファイルも含める
+          hidden = true,
         },
+        current_buffer_fuzzy_find = {
+          theme = "dropdown", -- 💡 ドロップダウンスタイルでバッファ内検索
+      },
       },
     })
 
-    -- 🔑 キーマップ（お好みで変更OK）
+    -- 🔑 キーマップ
     vim.keymap.set("n", "<leader>fg", builtin.find_files, { desc = "Find files" })
     vim.keymap.set("n", "<leader>fw", builtin.live_grep, { desc = "Live grep" })
     vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find buffers" })
     vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help tags" })
+    vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Search in current buffer" }) -- 🆕 追加！
+    -- ファイル内に定義されている関数を検索
+    vim.keymap.set("n", "<leader>fs", builtin.treesitter, { desc = "現在ファイルの関数/構造を一覧ジャンプ" })
+
   end,
 }
 
