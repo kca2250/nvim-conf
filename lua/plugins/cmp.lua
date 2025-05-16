@@ -1,7 +1,3 @@
--- lua/plugins/cmp.lua
--- ──────────────────────────────────────────────────────────────────────────────
--- nvim-cmp: Neovim の補完エンジンとソースの設定
--- ──────────────────────────────────────────────────────────────────────────────
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {
@@ -11,13 +7,13 @@ return {
     "saadparwaiz1/cmp_luasnip",-- LuaSnip 連携ソース
     "L3MON4D3/LuaSnip",        -- スニペットエンジン
   },
-  event = "InsertEnter",      -- 挿入モードに入ったら読み込む
-  
+  event = "InsertEnter",
+
   config = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
 
-    -- スニペット読み込みパス（optional）
+    -- スニペット読み込みパス（VSCode風のスニペット対応）
     require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup({
@@ -26,10 +22,17 @@ return {
           luasnip.lsp_expand(args.body)
         end,
       },
+
+      -- 🔽 補完ポップアップ＆ドキュメント表示に枠をつける
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
+
       mapping = {
-        ["<S-Space>"] = cmp.mapping.complete(),           -- 補完開始
-        ["<CR>"]      = cmp.mapping.confirm({ select = true }), -- Enter で確定
-        ["<Tab>"]     = cmp.mapping(function(fallback)    -- Tab で選択 or スニペット展開
+        ["<S-Space>"] = cmp.mapping.complete(),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
           elseif luasnip.expand_or_jumpable() then
@@ -38,7 +41,7 @@ return {
             fallback()
           end
         end, { "i", "s" }),
-        ["<S-Tab>"]   = cmp.mapping(function(fallback)    -- Shift-Tab で前の候補 or スニペットジャンプ
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
           elseif luasnip.jumpable(-1) then
@@ -48,29 +51,33 @@ return {
           end
         end, { "i", "s" }),
       },
+
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
+        { name = "copilot" },
         { name = "luasnip" },
       }, {
         { name = "buffer" },
-        { name = 'copilot'},
         { name = "path" },
       }),
+
       formatting = {
         format = function(entry, vim_item)
-          -- アイコン表示（optional）
           vim_item.menu = ({
             buffer = "[Buf]",
             path   = "[Path]",
             nvim_lsp = "[LSP]",
             luasnip  = "[Snip]",
+            copilot  = "[]",
           })[entry.source.name]
           return vim_item
         end,
       },
+
       experimental = {
-        ghost_text = true,  -- 予測テキストを表示
+        ghost_text = true, -- 予測表示（仮想テキスト）
       },
     })
   end,
 }
+
