@@ -61,7 +61,7 @@ return {
           height = 0.4,
           row = 0.1,
           col = 0.5,
-          relative = "cursor",
+          relative = "edior",
         },
       }
     },
