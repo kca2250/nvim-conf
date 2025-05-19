@@ -4,7 +4,10 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
-    "ravitemer/mcphub.nvim",
+    {
+      "ravitemer/mcphub.nvim",
+      config = true,
+    },
   },
   cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionActions", "CodeCompanionDiff" },
   keys = {
