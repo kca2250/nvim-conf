@@ -12,11 +12,9 @@ return {
       hijack_cursor = true,
       filters = {
         dotfiles = false,
-        custom = { ".ds_store" },
+        custom = { ".Ds_store" },
       },
       view = {
-        width = 38,
-
         float = {
           enable = true,
           open_win_config = function()
@@ -30,7 +28,7 @@ return {
             local center_y = ((vim.opt.lines:get() - window_h) / 2)
                              - vim.opt.cmdheight:get()
             return {
-              border = 'rounded',
+              border = 'double',
               relative = 'editor',
               row = center_y,
               col = center_x,
