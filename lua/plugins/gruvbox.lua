@@ -9,7 +9,7 @@ return {
 
       -- Gruvbox のオプション
       require("gruvbox").setup({
-        contrast = "soft",       -- "soft" | "medium" | "hard"
+        contrast = "hard",       -- "soft" | "medium" | "hard"
         italic = {
           strings = true,
           comments = true,
