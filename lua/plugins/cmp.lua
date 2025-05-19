@@ -1,3 +1,4 @@
+-- lua/plugins/cmp.lua
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {
@@ -13,7 +14,7 @@ return {
     local cmp = require("cmp")
     local luasnip = require("luasnip")
 
-    -- スニペット読み込みパス（VSCode風のスニペット対応）
+    -- VSCode風スニペットの読み込み
     require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup({
@@ -23,7 +24,6 @@ return {
         end,
       },
 
-      -- 🔽 補完ポップアップ＆ドキュメント表示に枠をつける
       window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
@@ -31,7 +31,10 @@ return {
 
       mapping = {
         ["<S-Space>"] = cmp.mapping.complete(),
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+
+        -- ✅ 明示的に選択された候補だけ確定（Enterで勝手に確定されない）
+        ["<CR>"] = cmp.mapping.confirm({ select = false }),
+
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
@@ -41,6 +44,7 @@ return {
             fallback()
           end
         end, { "i", "s" }),
+
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
@@ -52,20 +56,21 @@ return {
         end, { "i", "s" }),
       },
 
+      -- 🔽 Copilot のソースは後ろに（優先度を下げる）
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
-        { name = "copilot" },
         { name = "luasnip" },
       }, {
         { name = "buffer" },
         { name = "path" },
+        { name = "copilot" }, -- Ghost Text は出るけど勝手に確定されない
       }),
 
       formatting = {
         format = function(entry, vim_item)
           vim_item.menu = ({
-            buffer = "[Buf]",
-            path   = "[Path]",
+            buffer   = "[Buf]",
+            path     = "[Path]",
             nvim_lsp = "[LSP]",
             luasnip  = "[Snip]",
             copilot  = "[]",
@@ -75,9 +80,8 @@ return {
       },
 
       experimental = {
-        ghost_text = true, -- 予測表示（仮想テキスト）
+        ghost_text = false, -- 👻 提案をゴースト表示（入力はされない）
       },
     })
   end,
 }
-
