@@ -7,6 +7,12 @@ return {
     "rcarriga/nvim-notify",
   },
   config = function()
+    -- notifyの設定
+    require("notify").setup({
+      background_colour = "#1e1e2e", -- ← ここで背景色を指定（テーマに合わせて変えてOK）
+    })
+
+
     require("noice").setup({
       -- LSP設定
       lsp = {
