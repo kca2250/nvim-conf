@@ -10,6 +10,7 @@ lazy.setup({
   { import = "plugins.dressing"},
   { import = "plugins.noice"},
   { import = "plugins.hlchunk"},
+  { import = "plugins.toggleterm"},
   { import = "plugins.telescope" },          -- 🔭 ファジーファインダ
   { import = "plugins.lazygit" },
   { import = "plugins.lsp" },

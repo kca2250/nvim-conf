@@ -2,6 +2,10 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
+-- toggleterm
+vim.keymap.set("n", "<leader>tt", "<cmd>ToggleTerm<CR>", { desc = "Toggle terminal" })
+vim.keymap.set("n", "<leader>tc", "<cmd>ToggleTermToggleAll<CR>", { desc = "すべてのターミナルを非表示にする" })
+
 -- Telescope
 map("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 map("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
