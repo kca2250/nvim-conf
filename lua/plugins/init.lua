@@ -30,6 +30,7 @@ lazy.setup({
   { import = "plugins.codecompanion"},
   { import = "plugins.mcphub"},
   { import = "plugins.surround"},
-  { import = "plugins.gitsigns"}
+  { import = "plugins.gitsigns"},
+  { import = "plugins.nvim-ufo"}
 })
 
