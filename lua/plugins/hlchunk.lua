@@ -8,7 +8,7 @@ return {
         enable = true,
         use_treesitter = true,
         style = {
-          { fg = "#8BBA7F" },
+          { fg = "#fabd2f" },
           { fg = "#C2C2C2" },
         },
         exclude_filetypes = {
