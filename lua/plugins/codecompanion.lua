@@ -4,16 +4,28 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
+    "ravitemer/codecompanion-history.nvim",
     {
       "ravitemer/mcphub.nvim",
       config = true,
     },
   },
-  cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionActions", "CodeCompanionDiff" },
+  cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionActions", "CodeCompanionDiff", "CodeCompanionHistory" },
   keys = {
     { "<leader>cc", "<cmd>CodeCompanionChat<CR>", desc = "CodeCompanion Chat 開く" },
     { "<leader>ca", "<cmd>CodeCompanionActions<CR>", desc = "AIアクション一覧" },
     { "<leader>cd", "<cmd>CodeCompanionDiff<CR>", desc = "AI提案のDiffを見る" },
+  },
+
+  extensions = {
+    histrory = {
+      enabled = true,
+      opts = {
+       auto_save = true,
+        picker = "telescope",
+        auto_generate_title = true,
+      },
+    },
   },
   opts = {
     language = 'ja',
@@ -33,9 +45,11 @@ return {
     strategies = {
       chat = {
         adapter = "openai",
+        model = "gpt-4o",
       },
       inline = {
         adapter = "openai",
+        model = "gpt-4o",
       },
     },
 
@@ -52,20 +66,37 @@ return {
     display = {
       chat = {
         intro_message = "CodeCompanion へようこそ！✨",
-        show_token_count = true,
+        show_token_count = false,
         auto_scroll = true,
         show_header_separator = false, -- markdown強化時は false 推奨
 
         window = {
           layout = "float",
-          position = "right", -- floatでは使われないが保険でOK
           border = "rounded",
           width = 0.7,
           height = 0.4,
-          row = 0.1,
-          col = 0.5,
-          relative = "edior",
-        },
+          center = {
+            row = 0.5,
+            col = 0.5,
+          },
+          top = {
+            row = 0.0,
+            col = 0.5,
+          },
+          bottom = {
+            row = 1.0,
+            col = 0.5,
+          },
+          left = {
+            row = 0.5,
+            col = 0.0,
+          },
+          right = {
+            row = 0.5,
+            col = 1.0,
+          },
+        }
+
       }
     },
 
