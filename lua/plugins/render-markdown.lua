@@ -5,7 +5,16 @@ return {
   config = function()
     require("render-markdown").setup({
       headings = {
+        position = "inline",
+        widht = "block",
+        border = true,
+        border_virtual = true,
         heading_styles = { "Function", "Conditional", "Repeat", "String", "Identifier", "Comment" },
+      },
+      checkbox = {
+        unchecked = { icon = '✘ ' },
+        checked = { icon = '✔ ' },
+        custom = { todo = { rendered = '◯ ' } },
       },
       bullets = {
         symbol = "▸",

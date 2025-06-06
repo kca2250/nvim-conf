@@ -5,7 +5,8 @@ return {
   opts = {
     input = {
       enabled = true,
-      relative = "editor", -- "cursor" にするとカーソル周辺に出る
+      relative = "cursor", -- "cursor" にするとカーソル周辺に出る
+      border = "rounded", -- "rounded" にすると角が丸くなる
       win_options = {
         winblend = 0,
       },

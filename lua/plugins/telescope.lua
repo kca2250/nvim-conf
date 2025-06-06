@@ -50,10 +50,8 @@ return {
       pickers = {
         find_files = {
           hidden = true,
-        },
-        current_buffer_fuzzy_find = {
           theme = "dropdown", -- 💡 ドロップダウンスタイルでバッファ内検索
-      },
+        },
       },
     })
 
