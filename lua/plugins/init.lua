@@ -7,6 +7,7 @@ lazy.setup({
   { import = "plugins.lunaline" },           -- 📊 ステータスライン（ちらつきやすい）
   { import = "plugins.colorizer" },          -- 🎨 色表示系も早めに
   { import = "plugins.nvim-tree" },           -- 🗂️ サイドバー
+  { import = "plugins.todo-comment"},
   { import = "plugins.dressing"},
   { import = "plugins.noice"},
   { import = "plugins.hlchunk"},
