@@ -2,7 +2,7 @@
 local lazy = require("lazy")
 
 lazy.setup({
-  { import = "plugins.gruvbox"},
+  { import = "plugins.monokai"},
   { import = "plugins.nvim-web-devicons"},
   { import = "plugins.lunaline" },           -- 📊 ステータスライン（ちらつきやすい）
   { import = "plugins.colorizer" },          -- 🎨 色表示系も早めに
