@@ -2,6 +2,7 @@
 local o = vim.opt
 local g = vim.g
 local a = vim.api
+local a_set_hl = a.nvim_set_hl
 
 -- Prettierの状態をlualineで使うための初期化
 g.prettier_status = ""
@@ -22,14 +23,14 @@ o.incsearch = true      -- インクリメンタルサーチ（入力しなが�
 
 
 -- vim.api.nvim_set_option_value("winhighlight", "Normal:Normal,NormalNC:Normal", { scope = "local" })
-
+ 
 -- ハイライトの設定
-a.nvim_set_hl(0, "ActiveWinSeparator", { fg = "#ff5f87", bold = true }) -- ピンク系
-a.nvim_set_hl(0, "InactiveWinSeparator", { fg = "#5c5c5c" })            -- グレー系
-
-
--- Treesitter の型を italic にする
-a.nvim_set_hl(0, "@type", { fg = "#b0b0ff", italic = true })
-a.nvim_set_hl(0, "@type.builtin", { fg = "#9999dd", italic = true })
-
+a_set_hl(0, "ActiveWinSeparator", { fg = "#ff5f87", bold = true }) -- ピンク系
+a_set_hl(0, "InactiveWinSeparator", { fg = "#5c5c5c" })            -- グレー系
+ 
+  
+-- Treesittear の型を italic にする
+a_set_hl(0, "@type", { fg = "#b0b0ff", italic = true })
+a_set_hl(0, "@type.builtin", { fg = "#9999dd", italic = true })
+  
 
