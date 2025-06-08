@@ -6,21 +6,43 @@ return {
     priority = 1000,
     config = function()
       require("monokai-pro").setup({
-        transparent_background = false,
-        terminal_colors = true,
+        transparent_background = true,
+        terminal_colors = false,
         devicons = true,
         styles = {
-          comments = { italic = true },
-          functions = { bold = true },
-          keywords = { italic = true },
-          strings = { italic = true },
+          comment = { italic = true },
+          keyword = { italic = true },
+          type = { italic = true },
+          storageclass = { italic = true },
+          structure = { italic = true },
+          parameter = { italic = true },
+          annotation = { italic = true },
+          tag_attribute = { italic = true },
         },
-        filter = "octagon",
+        filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
+        inc_search = "background", -- underline | background
+        background_clear = {
+          "toggleterm",
+          "telescope",
+          "renamer",
+          "notify",
+          "nvim-tree",
+          "bufferline",
+        },
+        plugins = {
+          bufferline = {
+            underline_selected = false,
+            underline_visible = false,
+          },
+          indent_blankline = {
+            context_highlight = "pro",
+            context_start_underline = false,
+          },
+        },
       })
 
       vim.cmd("colorscheme monokai-pro")
 
-      -- NvimTree の背景を透明に
       vim.cmd [[
         highlight NvimTreeNormal guibg=NONE ctermbg=NONE
         highlight NvimTreeNormalNC guibg=NONE ctermbg=NONE
@@ -31,6 +53,10 @@ return {
       vim.cmd [[
         highlight FloatBorder guifg=#ffd700 guibg=NONE
       ]]
+
+      -- チルダを非表示にする
+      vim.opt.fillchars:append { eob = ' ' }  -- '~' → 空白にする方法
+      vim.cmd [[ highlight EndOfBuffer guifg=NONE guibg=NONE ]]  -- ハイライトを透明に
     end,
   },
 }
