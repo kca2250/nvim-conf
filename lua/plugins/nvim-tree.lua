@@ -22,6 +22,11 @@ return {
       update_focused_file = {
         enable = true,
       },
+      git = {
+        enable = true,
+        ignore = false,
+        timeout = 500,
+      },
       renderer = {
         group_empty = true,
         highlight_modified = "all", -- ← これを追加！
