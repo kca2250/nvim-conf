@@ -73,8 +73,8 @@ return {
         window = {
           layout = "float",
           border = "rounded",
-          width = 0.7,
-          height = 0.4,
+          width = 0.5,
+          height = 0.7,
           center = {
             row = 0.5,
             col = 0.5,
