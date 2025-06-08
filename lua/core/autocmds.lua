@@ -29,16 +29,15 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   end,
 })
 
--- フォーカスされているウィンドウをハイライト
+-- アクティブウィンドウには明るい色、非アクティブには暗い色を設定
 vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
   callback = function()
-    vim.wo.winhighlight = "WinSeparator:ActiveWinSeparator"
+    vim.wo.winhighlight = "Normal:Normal,WinSeparator:DiffText"
   end,
 })
 
 vim.api.nvim_create_autocmd("WinLeave", {
   callback = function()
-    vim.wo.winhighlight = "WinSeparator:InactiveWinSeparator"
+    vim.wo.winhighlight = "Normal:Normal,WinSeparator:Comment"
   end,
 })
-
