@@ -6,5 +6,6 @@ require("core.options")
 require("core.keymaps")
 require("core.env")
 require("core.commands")
+
 -- plugins
 require("plugins")

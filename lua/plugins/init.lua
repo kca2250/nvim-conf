@@ -33,6 +33,7 @@ lazy.setup({
   { import = "plugins.mcphub"},
   { import = "plugins.surround"},
   { import = "plugins.gitsigns"},
-  { import = "plugins.nvim-ufo"}
+  { import = "plugins.nvim-ufo"},
+  { import = "plugins.vim-visual-multi"}
 })
 
