@@ -11,11 +11,6 @@ return {
         border_virtual = true,
         heading_styles = { "Function", "Conditional", "Repeat", "String", "Identifier", "Comment" },
       },
-      checkbox = {
-        unchecked = { icon = '✘ ' },
-        checked = { icon = '✔ ' },
-        custom = { todo = { rendered = '◯ ' } },
-      },
       bullets = {
         symbol = "▸",
         highlight = "Keyword",
