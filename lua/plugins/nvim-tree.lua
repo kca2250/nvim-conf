@@ -12,7 +12,7 @@ return {
       hijack_cursor = true,
       filters = {
         dotfiles = false,
-        custom = { ".Ds_store" },
+        custom = { ".DS_Store" },
       },
       view = {
         width = function()
@@ -29,19 +29,19 @@ return {
       },
       renderer = {
         group_empty = true,
-        highlight_modified = "all", -- ← これを追加！
+        highlight_modified = "all",
+        highlight_git = true,
         icons = {
           show = {
-            modified = true, -- ← これを追加！
+            modified = false,
           },
           glyphs = {
-            modified = "●", -- ← これを追加！
             git = {
-              unstaged  = "✗",
-              staged    = "✓",
+              unstaged  = "󰗐",
+              staged    = "󰧞",
               renamed   = "➜",
-              untracked = "★",
-              ignored   = "◌",
+              untracked = "󱗽",
+              ignored   = "_",
             },
           },
         },

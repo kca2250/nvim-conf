@@ -43,6 +43,17 @@ return {
 
       vim.cmd("colorscheme monokai-pro")
 
+
+      -- gitgutterの色を設定
+      vim.api.nvim_set_hl(0, "NvimTreeGitDirty", { fg = "#ff8c00" })    -- modified
+      vim.api.nvim_set_hl(0, "NvimTreeGitNew",   { fg = "#008080" })    -- added / staged
+      vim.api.nvim_set_hl(0, "NvimTreeGitDeleted", { fg = "#e06c75" })  -- deleted
+      vim.api.nvim_set_hl(0, "NvimTreeGitRenamed", { fg = "#61afef" })  -- renamed
+      vim.api.nvim_set_hl(0, "NvimTreeGitStaged", { fg = "#87ceeb" })   -- staged (一部のconfigで別扱い)
+      vim.api.nvim_set_hl(0, "NvimTreeGitMerge",  { fg = "#c678dd" })   -- conflict
+      vim.api.nvim_set_hl(0, "NvimTreeGitIgnored", { fg = "#696969" })  -- .gitignoreに含まれる
+
+
       vim.cmd [[
         highlight NvimTreeNormal guibg=NONE ctermbg=NONE
         highlight NvimTreeNormalNC guibg=NONE ctermbg=NONE
