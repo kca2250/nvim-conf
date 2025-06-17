@@ -34,6 +34,7 @@ return {
           "%.next/",
           "vendor/",
           "%.lock",
+          "%.yaml"
         },
         mappings = {
           i = {

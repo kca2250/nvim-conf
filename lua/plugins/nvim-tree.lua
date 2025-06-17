@@ -28,9 +28,12 @@ return {
         timeout = 500,
       },
       renderer = {
-        group_empty = true,
+        group_empty = false,
         highlight_modified = "all",
         highlight_git = true,
+        indent_markers = {
+          enable = true,
+        },
         icons = {
           show = {
             modified = false,

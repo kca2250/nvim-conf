@@ -9,7 +9,7 @@ return {
   config = function()
     -- notifyの設定
     require("notify").setup({
-      background_colour = "#1e1e2e", -- ← ここで背景色を指定（テーマに合わせて変えてOK）
+      background_colour = "#000000", -- ← ここで背景色を指定（テーマに合わせて変えてOK）
     })
 
 
