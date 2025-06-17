@@ -26,7 +26,9 @@ vim.keymap.set('n', '<C-k>', '<C-w>k', opts)
 -- 横分割の高さ調整（上下）
 vim.keymap.set("n", "<C-w>", ":resize +2<CR>")
 vim.keymap.set("n", "<C-s>", ":resize -2<CR>")
-
+-- 幅（左右）
+vim.keymap.set("n", "<C-d>", ":vertical resize +2<CR>")  -- 右に広げる
+vim.keymap.set("n", "<C-a>", ":vertical resize -2<CR>")  -- 左に縮める
 -- 行移動
 -- Normalモードで行を上下に移動
 vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", opts)
