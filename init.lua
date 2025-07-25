@@ -10,6 +10,21 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- windows settings
+vim.g.clipboard = {
+  name = "win32yank",
+  copy = {
+    ["+"] = "/usr/local/bin/win32yank.exe -i --crlf",
+    ["*"] = "/usr/local/bin/win32yank.exe -i --crlf",
+  },
+  paste = {
+    ["+"] = "/usr/local/bin/win32yank.exe -o --lf",
+    ["*"] = "/usr/local/bin/win32yank.exe -o --lf",
+  },
+  cache_enabled = 0,
+}
+
+
 -- core
 require("core.options")
 require("core.keymaps")
