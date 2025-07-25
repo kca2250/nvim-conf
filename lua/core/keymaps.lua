@@ -62,16 +62,5 @@ vim.keymap.set("n", "<leader>*", function()
   vim.cmd("normal! n")  -- 最初のマッチにジャンプ
 end, { desc = "現在の単語を検索＆ハイライト" })
 
--- CodeCompanion display loading
-vim.keymap.set("n", "<leader>cc", function()
-  require("core.codecompanion_ui").send_chat_with_progress()
-end, { desc = "CodeCompanion Chat + Thinking 表示" })
-
--- CodeCompanion inline assistant
-vim.keymap.set("v", "<leader>ci", function()
-  vim.ui.input({ prompt = "修正したい内容を入力してください：" }, function(input)
-    if input and input ~= "" then
-      vim.cmd("'<,'>CodeCompanion " .. input)
-    end
-  end)
-end, { desc = "CodeCompanion: インラインアシスタント" })
+-- Claude Codeを起動
+vim.keymap.set("n", "<leader>cc", "<cmd>:ClaudeCode<CR>", { desc = "Launch Claude Code" })
